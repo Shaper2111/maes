@@ -1,0 +1,7 @@
+{{ object.name }}
+{{ object.intro }}
+{{ object.full }}
+{{ object.job }}
+{{ object.education }}
+{{ object.line }}
+{{ object.skill }}

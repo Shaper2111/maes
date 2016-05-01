@@ -1,0 +1,476 @@
+{% load static %}
+{% load compress %}
+<html>
+<head lang="en">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+    }
+
+    ng\:form {
+        display: block;
+    }
+
+    .ng-animate-shim {
+        visibility: hidden;
+    }
+
+    .ng-anchor {
+        position: absolute;
+    }</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <base href="/">
+    {% block meta %}
+    <meta name="Description" content="SEO"/>
+    <title>SEO</title>
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,700italic,600italic,400italic,300italic|Lora:400,700,700italic,400italic&amp;subset=latin,cyrillic"
+          rel="stylesheet" type="text/css">
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss"
+          href="{% static 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss' %}"/>
+    <link rel="stylesheet" type="text/x-scss"
+          href="{% static 'bower_components/font-awesome/scss/font-awesome.scss' %}"/>
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'assets/scss/build.scss' %}"/>
+    {% endcompress %}
+</head>
+
+<body ng-app="routerApp" class="ng-scope">
+
+<!-- ngInclude: '../static/app/shared/menu/navigation.html' -->
+<div ng-include="'../static/app/shared/menu/navigation.html'" class="ng-scope"><!-- NAVIGATION -->
+    <nav class="navbar navbar-inverse ng-scope" role="navigation" ng-controller="navigationCtrl">
+        <div class="container">
+            <div class="row">
+                <div class="navbar-header">
+
+                    <div class="menuFix">
+                        <i class="fa fa-mail-reply" ng-click="$back()"></i>
+                    </div>
+                    <div class="w190">
+                        <a class="navbar-brand maestroLogo" ui-sref="home" href="/">
+                            <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 593.8 612 104.9" enable-background="new 0 593.8 612 104.9" xml:space="preserve">
+                                        <g id="Слой_x0020_1">
+                                        <g id="_970900471984">
+                                            <path fill="#E31E24" d="M238.1,600.9v33.4h18.6c4.6,0,7.8-0.7,10.1-2.3c2.3-2.3,3-5.5,3.9-10.1h2.3v29.5h-2.3
+                                                c-0.7-3.9-0.7-6.9-1.6-7.8c-0.7-1.6-2.3-2.3-3.9-3.9c-1.6-0.7-4.6-1.6-7.8-1.6h-18.6v28c0,3.9,0,6.2,0.7,6.9
+                                                c0.7,0.7,0.7,1.6,1.6,1.6c0.7,0.7,2.3,0.7,4.6,0.7h14.7c4.6,0,8.5-0.7,10.8-0.7c2.3-0.7,3.9-2.3,6.2-3.9c2.3-2.3,5.5-6.2,7.8-11.7
+                                                h2.3l-7.8,20.9h-66.7v-2.3h3c2.3,0,3.9-0.7,5.5-1.6c1.6-0.7,2.3-1.6,3-3c0.7-1.6,0.7-3.9,0.7-7.8V610c0-5.5-0.7-8.5-1.6-10.1
+                                                c-1.6-1.6-3.9-2.3-7.8-2.3h-3v-2.3h66.7l0.7,18.6h-2.3c-0.7-4.6-1.6-7.8-3-9.4c-0.7-1.6-2.3-3-4.6-3.9c-1.6-0.7-4.6-0.7-9.3-0.7
+                                                H238L238.1,600.9L238.1,600.9z M208.6,693.3h81.4v5.5h-81.4V693.3z"></path>
+                                            <path fill="#FFFFFF" d="M345.9,594.7v28.7h-2.3c-0.7-5.5-2.3-10.1-3.9-13.1c-2.3-3-4.6-6.2-8.5-7.8c-3.9-2.3-6.9-3-10.8-3
+                                                c-4.6,0-7.8,1.6-10.8,3.9c-3,2.3-3.9,5.5-3.9,9.4c0,2.3,0.7,4.6,2.3,6.9c2.3,3,8.5,6.9,18.6,12.4c7.8,4.6,14,7.8,16.3,10.1
+                                                c3,2.3,5.5,4.6,6.9,7.8c1.6,3,2.3,6.2,2.3,9.4c0,6.2-2.3,11.7-7.8,16.3c-5.5,4.6-11.7,6.9-19.4,6.9c-2.3,0-4.6,0-6.9-0.7
+                                                c-0.7,0-3.9-0.7-7.8-2.3c-3.9-0.7-6.9-1.6-7.8-1.6c-0.9,0-2.3,0-2.3,0.7c-0.7,0.7-0.7,1.6-1.6,3.9h-2.3v-28.7h2.3
+                                                c0.7,6.2,2.3,10.8,4.6,14c2.3,3,4.6,5.5,8.5,7.8c3.9,2.3,7.8,3,12.4,3c5.5,0,9.3-1.6,12.4-3.9c3-3,4.6-6.2,4.6-9.4
+                                                c0-2.3-0.7-3.9-1.6-6.2c-1.6-2.3-3-3.9-5.5-6.2c-1.6-1.6-6.2-3.9-14-7.8c-6.9-3.9-12.4-6.9-15.6-9.4c-3-2.3-5.5-5.5-6.9-7.8
+                                                c-1.6-3-2.3-6.2-2.3-9.4c0-6.2,2.3-10.8,6.9-15.6c4.6-4.6,10.8-6.9,17.9-6.9c4.6,0,9.3,0.7,14.7,3c2.3,0.7,3.9,1.6,5.5,1.6
+                                                c0.7,0,2.3-0.7,3-0.7c0.7-0.7,0.7-2.3,1.6-3.9h0.7v-1.5H345.9z M434.4,596.3l0.7,20.2h-2.3c-0.7-3.9-0.7-6.2-1.6-7.8
+                                                c-1.6-2.3-3-3.9-5.5-5.5c-2.3-0.7-5.5-1.6-8.5-1.6h-12.4V666c0,5.5,0.7,8.5,1.6,9.4c1.6,1.6,3.9,2.3,7.8,2.3h3v2.3h-36.5v-2.3h3
+                                                c3.9,0,6.2-0.7,7.8-3c0.7-1.6,1.6-3.9,1.6-9.4v-64.4H383c-3.9,0-6.9,0.7-8.5,0.7c-2.3,0.7-3.9,2.3-5.5,4.6
+                                                c-1.6,2.3-2.3,5.5-2.3,9.4h-2.3l0.7-20.2h69v0.9L434.4,596.3L434.4,596.3z M525.9,680.9h-23.2L474,641.3c-2.3,0-3.9,0-5.5,0
+                                                c-0.7,0-0.7,0-1.6,0c-0.7,0-1.6,0-2.3,0v24.8c0,5.5,0.7,8.5,1.6,10.1c1.6,1.6,3.9,2.3,6.9,2.3h3v2.3h-37.2v-2.3h3
+                                                c3.9,0,6.2-0.7,7.8-3.9c0.7-1.6,1.6-3.9,1.6-9.4V611c0-5.5-0.7-8.5-2.3-10.1c-1.6-1.6-3.9-2.3-6.9-2.3h-3v-2.3h31.8
+                                                c9.3,0,15.6,0.7,20.2,2.3c4.6,1.6,7.8,3.9,10.8,6.9c3,3.9,4.6,7.8,4.6,12.4c0,5.5-1.6,9.4-5.5,13.1c-3,3.9-8.5,6.9-16.3,7.8
+                                                l17.9,24.1c3.9,5.5,7.8,9.4,10.8,10.8c3,2.3,6.9,3,11.7,3.9v3L525.9,680.9L525.9,680.9z M465.5,637.4c0.7,0,1.6,0,2.3,0
+                                                s0.7,0,1.6,0c7.8,0,14-1.6,18.6-5.5c3.9-3.9,6.2-7.8,6.2-13.1c0-5.5-1.6-9.4-5.5-13.1c-3-3-7.8-4.6-13.1-4.6
+                                                c-2.3,0-5.5,0.7-10.1,0.7V637.4z M572.6,594.7c10.8,0,20.9,3.9,28.7,12.4c7.8,8.5,12.4,18.6,12.4,31s-3.9,23.2-12.4,31.8
+                                                c-8.5,8.5-18.6,12.4-30.3,12.4c-11.7,0-21.8-3.9-29.5-12.4c-7.8-7.8-12.4-18.6-12.4-31.8c0-13.1,4.6-24.1,14-32.6
+                                                C551.6,597.9,561.7,594.7,572.6,594.7z M571.7,599.3c-7.8,0-14,3-18.6,8.5c-5.5,6.9-8.5,17-8.5,30.3c0,14,3,24.1,9.3,31.8
+                                                c4.6,5.5,10.8,8.5,18.6,8.5c7.8,0,14.7-3,20.2-9.4c5.5-6.2,7.8-15.6,7.8-29.5c0-13.9-3-24.8-8.5-31.8
+                                                C586.6,601.8,579.5,599.3,571.7,599.3z M175.3,652.1h-33.4l-6.2,13.1c-1.6,3-2.3,5.5-2.3,6.9c0,1.6,0.7,2.3,1.6,3
+                                                c1.6,0.7,3.9,1.6,7.8,2.3v2.3h-27.1v-2.3c3.9-0.7,5.5-1.6,6.9-2.3c2.3-2.3,4.6-6.2,6.9-12.4l30.3-69h2.3l30.3,69.9
+                                                c2.3,5.5,4.6,9.4,6.9,10.8c2.3,1.6,4.6,2.3,8.5,3v2.3h-34.1v-2.3c3.9,0,5.5-0.7,6.9-1.6c0.7-0.7,1.6-2.3,1.6-3
+                                                c0-2.3-0.7-4.6-2.3-8.5L175.3,652.1z M173.7,647.5L159,613.4l-14.7,34.1H173.7z M50.3,680.9l-33.4-71.4V666c0,5.5,0.7,8.5,1.6,9.4
+                                                c1.6,1.6,3.9,2.3,6.9,2.3h3v2.3H-1.7v-2.3h3c3.9,0,6.2-0.7,7.8-3c0.7-1.6,1.6-3.9,1.6-9.4v-55.1c0-3.9-0.7-6.2-0.7-7.8
+                                                c-0.7-0.7-1.6-2.3-3-3c-1.6-0.7-3.9-0.7-7.8-0.7v-2.3h24.1l31,66l31-66h24.1v2.3h-3c-3.9,0-6.2,0.7-7.8,3
+                                                c-0.7,1.6-1.6,3.9-1.6,9.4v55.1c0,5.5,0.7,8.5,1.6,9.4c1.6,1.6,3.9,2.3,7.8,2.3h3v2.3H72.9v-2.3h3c3.9,0,6.2-0.7,7.8-3
+                                                c0.7-1.6,1.6-3.9,1.6-9.4v-56.6L52,680.3h-1.6L50.3,680.9L50.3,680.9z"></path>
+                                        </g>
+                                    </g>
+                                    </svg>
+                        </a>
+
+                        <a class="telephone" href=""><i class="fa fa-phone"></i> +7 (846) 212-03-03</a>
+                    </div>
+                    <button ng-click="isCollapsed = !isCollapsed" type="button" class="navbar-toggle collapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+
+                <div id="navbar" collapse="isCollapsed" class="navbar-collapse collapse" aria-expanded="true"
+                     style="height: 120px;" aria-hidden="false">
+                    <ul class="nav navbar-nav visible-md visible-lg">
+                        <li>
+                            <a ui-sref="training-for-managers" href="/trainings">Тренинги для<br>руководителей</a>
+                        </li>
+                        <li>
+                            <a ui-sref="training-for-personal" href="/competences">Обучение<br>сотрудников</a>
+                        </li>
+                        <li>
+                            <a ui-sref="employee-training" href="/risings">Повышение<br>квалификации</a>
+                        </li>
+                        <li>
+                            <a ui-sref="business-solutions" href="/solutions">Решения<br>для бизнеса</a>
+                        </li>
+                        <li>
+                            <a ui-sref="business-event" href="/events">Интеллектуальные<br>игры</a>
+                        </li>
+                        <li>
+                            <a ui-sref="acts" href="/photo">Портфолио</a>
+                        </li>
+                        <li>
+                            <a ui-sref="posts" href="/news">Блог</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav visible-xs visible-sm">
+                        <li>
+                            <a ui-sref="training-for-managers" href="/trainings">Тренинги для руководителей</a>
+                        </li>
+                        <li>
+                            <a ui-sref="training-for-personal" href="/competences">Обучение сотрудников</a>
+                        </li>
+                        <li>
+                            <a ui-sref="employee-training" href="/risings">Повышение квалификации</a>
+                        </li>
+                        <li>
+                            <a ui-sref="business-solutions" href="/solutions">Решения для бизнеса</a>
+                        </li>
+                        <li>
+                            <a ui-sref="business-event" href="/events">Интеллектуальные игры</a>
+                        </li>
+                        <li>
+                            <a ui-sref="acts" href="/photo">Портфолио</a>
+                        </li>
+                        <li>
+                            <a ui-sref="posts" href="/news">Блог</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</div>
+<!-- ngInclude: '../static/app/shared/sidebar/phone.html' -->
+<div ng-include="'../static/app/shared/sidebar/phone.html'" class="ng-scope">
+    <div ng-controller="callback" class="ng-scope">
+
+        <div id="circle" ng-click="panelChange()" class="callBackHunter--box">
+            <!--<div class="callBackHunter&#45;&#45;box_circle callBackHunter&#45;&#45;box_circle-1"></div>-->
+            <div class="animated sorrow callBackHunter--box_circle callBackHunter--box_circle-2">
+                <i class="fa fa-phone"></i>
+            </div>
+        </div>
+
+
+        <div ng-class="{active:status()}" class="callbackHunter--overlay_panel">
+
+            <ul class="tab--menu">
+                <li ng-click="phoneChange(true)"><i class="fa fa-phone active" ng-class="{active: faPhone()}"></i>ЗВОНОК
+                </li>
+                <li ng-click="phoneChange(false)"><i class="fa fa-envelope" ng-class="{active: !faPhone()}"></i>ЗАЯВКА
+                </li>
+            </ul>
+
+            <div>
+                <div ng-class="{active: faPhone()}" class="faPhone active">
+                    <select ng-model="calls.day" class="selectDay ng-pristine ng-untouched ng-valid">
+                        <option value="? undefined:undefined ?"></option>
+                        <option value="TY">Сегодня</option>
+                        <option value="TW">Завтра</option>
+                        <option value="DA">После завтра</option>
+                    </select> в
+                    <select ng-model="calls.time" class="selectTime ng-pristine ng-untouched ng-valid"
+                            placeholder="--:--">
+                        <option value="? undefined:undefined ?"></option>
+                        <option value="10:00:00">10:00</option>
+                        <option value="11:00:00">11:00</option>
+                        <option value="12:00:00">12:00</option>
+                        <option value="13:00:00">13:00</option>
+                        <option value="14:00:00">14:00</option>
+                        <option value="15:00:00">15:00</option>
+                        <option value="16:00:00">16:00</option>
+                        <option value="17:00:00">17:00</option>
+                        <option value="18:00:00">18:00</option>
+                    </select>
+
+                    <input ng-model="calls.phone" type="text" class="phone ng-pristine ng-untouched ng-valid"
+                           placeholder="Введите ваш номер">
+                    <button ng-click="sendCall()" onclick="yaCounter11560696.reachGoal('PHONE_ZAYAVKA'); return true;"
+                            class="btn btn-callback">
+                        <i class="fa fa-clock-o"></i>
+                        Жду звонка
+                    </button>
+                </div>
+
+                <div style="margin-top: -50%" ng-class="{active: !faPhone()}" class="faEnvelope">
+
+                    <input ng-model="requests.name" type="text" class="phone ng-pristine ng-untouched ng-valid"
+                           placeholder="Представьтесь">
+                    <input ng-model="requests.phone" type="text" class="phone ng-pristine ng-untouched ng-valid"
+                           placeholder="Ваш телефон">
+                    <input ng-model="requests.email" type="email"
+                           class="phone ng-pristine ng-untouched ng-valid ng-valid-email" placeholder="Ваш e-mail">
+                    <textarea ng-model="requests.comment" class="phone ng-pristine ng-untouched ng-valid" name="" id=""
+                              cols="30" rows="10"></textarea>
+                    <button ng-click="sendRequest()" onclick="yaCounter11560696.reachGoal('TXT_ZAYAVKA'); return true;"
+                            class="btn btn-callback">
+                        <i class="fa fa-send"></i>
+                        Заказать!
+                    </button>
+                </div>
+
+            </div>
+
+            <div ng-click="panelChange()">
+                <button class="btn btn-transition">
+                    Убрать панель <i class="fa fa-angle-double-right"></i>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<!-- ngInclude: '../static/app/shared/social/social.html' -->
+<div ng-include="'../static/app/shared/social/social.html'" class="ng-scope">
+    <div class="container social-vertical posr ng-scope">
+        <div class="icons">
+            <div custom-url="http://emaestro.ru/" social-vk="" class="icon vk ng-isolate-scope" rel="nofollow">
+                <i class="fa fa-vk"></i>
+            </div>
+            <div custom-url="http://emaestro.ru/" social-facebook="" class="icon fb ng-isolate-scope" rel="nofollow">
+                <i class="fa fa-facebook"></i>
+            </div>
+            <div custom-url="http://emaestro.ru/" social-twitter="" class="icon tw ng-isolate-scope" rel="nofollow">
+                <i class="fa fa-twitter"></i>
+            </div>
+            <div custom-url="http://emaestro.ru/" social-linkedin="" class="icon in ng-isolate-scope" rel="nofollow">
+                <i class="fa fa-linkedin"></i>
+            </div>
+            <div custom-url="http://emaestro.ru/" social-ok="" class="icon ok ng-isolate-scope" rel="nofollow">
+                <i class="fa fa-odnoklassniki"></i>
+            </div>
+        </div>
+    </div>
+</div>
+{% block content %}{% endblock %}
+
+<!-- ngInclude: '../static/app/shared/footer/logo-row.html' -->
+<div ng-include="'../static/app/shared/footer/logo-row.html'" class="ng-scope">
+    <div style="background-color: bfc2c7; width: 100%;" class="container footer-clients ng-scope">
+        <div><img src="../static/assets/img/clients/image00.png" alt=""></div>
+        <div><img src="../static/assets/img/clients/image01.png" alt=""></div>
+        <div><img src="../static/assets/img/clients/image02.png" alt=""></div>
+        <div><img src="../static/assets/img/clients/image03.png" alt=""></div>
+        <div><img src="../static/assets/img/clients/image04.png" alt=""></div>
+        <div><img src="../static/assets/img/clients/image05.png" alt=""></div>
+    </div>
+</div>
+<!-- ngInclude: '../static/app/shared/footer/menu-row.html' -->
+<div ng-include="'../static/app/shared/footer/menu-row.html'" class="ng-scope">
+    <div class="footer-menu ng-scope">
+        <div class="container">
+            <div class="col-sm-4 col-col-xs-12">
+
+                <svg version="1.1" id="svg-nav" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px" viewBox="0 593.8 612 104.9" enable-background="new 0 593.8 612 104.9" xml:space="preserve">
+<g id="Слой_x0020_1">
+	<g id="_970900471984">
+		<path fill="#E31E24" d="M238.1,600.9v33.4h18.6c4.6,0,7.8-0.7,10.1-2.3c2.3-2.3,3-5.5,3.9-10.1h2.3v29.5h-2.3
+			c-0.7-3.9-0.7-6.9-1.6-7.8c-0.7-1.6-2.3-2.3-3.9-3.9c-1.6-0.7-4.6-1.6-7.8-1.6h-18.6v28c0,3.9,0,6.2,0.7,6.9
+			c0.7,0.7,0.7,1.6,1.6,1.6c0.7,0.7,2.3,0.7,4.6,0.7h14.7c4.6,0,8.5-0.7,10.8-0.7c2.3-0.7,3.9-2.3,6.2-3.9c2.3-2.3,5.5-6.2,7.8-11.7
+			h2.3l-7.8,20.9h-66.7v-2.3h3c2.3,0,3.9-0.7,5.5-1.6c1.6-0.7,2.3-1.6,3-3c0.7-1.6,0.7-3.9,0.7-7.8V610c0-5.5-0.7-8.5-1.6-10.1
+			c-1.6-1.6-3.9-2.3-7.8-2.3h-3v-2.3h66.7l0.7,18.6h-2.3c-0.7-4.6-1.6-7.8-3-9.4c-0.7-1.6-2.3-3-4.6-3.9c-1.6-0.7-4.6-0.7-9.3-0.7
+			H238L238.1,600.9L238.1,600.9z M208.6,693.3h81.4v5.5h-81.4V693.3z"></path>
+		<path fill="#000000" d="M345.9,594.7v28.7h-2.3c-0.7-5.5-2.3-10.1-3.9-13.1c-2.3-3-4.6-6.2-8.5-7.8c-3.9-2.3-6.9-3-10.8-3
+			c-4.6,0-7.8,1.6-10.8,3.9c-3,2.3-3.9,5.5-3.9,9.4c0,2.3,0.7,4.6,2.3,6.9c2.3,3,8.5,6.9,18.6,12.4c7.8,4.6,14,7.8,16.3,10.1
+			c3,2.3,5.5,4.6,6.9,7.8c1.6,3,2.3,6.2,2.3,9.4c0,6.2-2.3,11.7-7.8,16.3c-5.5,4.6-11.7,6.9-19.4,6.9c-2.3,0-4.6,0-6.9-0.7
+			c-0.7,0-3.9-0.7-7.8-2.3c-3.9-0.7-6.9-1.6-7.8-1.6c-0.9,0-2.3,0-2.3,0.7c-0.7,0.7-0.7,1.6-1.6,3.9h-2.3v-28.7h2.3
+			c0.7,6.2,2.3,10.8,4.6,14c2.3,3,4.6,5.5,8.5,7.8c3.9,2.3,7.8,3,12.4,3c5.5,0,9.3-1.6,12.4-3.9c3-3,4.6-6.2,4.6-9.4
+			c0-2.3-0.7-3.9-1.6-6.2c-1.6-2.3-3-3.9-5.5-6.2c-1.6-1.6-6.2-3.9-14-7.8c-6.9-3.9-12.4-6.9-15.6-9.4c-3-2.3-5.5-5.5-6.9-7.8
+			c-1.6-3-2.3-6.2-2.3-9.4c0-6.2,2.3-10.8,6.9-15.6c4.6-4.6,10.8-6.9,17.9-6.9c4.6,0,9.3,0.7,14.7,3c2.3,0.7,3.9,1.6,5.5,1.6
+			c0.7,0,2.3-0.7,3-0.7c0.7-0.7,0.7-2.3,1.6-3.9h0.7v-1.5H345.9z M434.4,596.3l0.7,20.2h-2.3c-0.7-3.9-0.7-6.2-1.6-7.8
+			c-1.6-2.3-3-3.9-5.5-5.5c-2.3-0.7-5.5-1.6-8.5-1.6h-12.4V666c0,5.5,0.7,8.5,1.6,9.4c1.6,1.6,3.9,2.3,7.8,2.3h3v2.3h-36.5v-2.3h3
+			c3.9,0,6.2-0.7,7.8-3c0.7-1.6,1.6-3.9,1.6-9.4v-64.4H383c-3.9,0-6.9,0.7-8.5,0.7c-2.3,0.7-3.9,2.3-5.5,4.6
+			c-1.6,2.3-2.3,5.5-2.3,9.4h-2.3l0.7-20.2h69v0.9L434.4,596.3L434.4,596.3z M525.9,680.9h-23.2L474,641.3c-2.3,0-3.9,0-5.5,0
+			c-0.7,0-0.7,0-1.6,0c-0.7,0-1.6,0-2.3,0v24.8c0,5.5,0.7,8.5,1.6,10.1c1.6,1.6,3.9,2.3,6.9,2.3h3v2.3h-37.2v-2.3h3
+			c3.9,0,6.2-0.7,7.8-3.9c0.7-1.6,1.6-3.9,1.6-9.4V611c0-5.5-0.7-8.5-2.3-10.1c-1.6-1.6-3.9-2.3-6.9-2.3h-3v-2.3h31.8
+			c9.3,0,15.6,0.7,20.2,2.3c4.6,1.6,7.8,3.9,10.8,6.9c3,3.9,4.6,7.8,4.6,12.4c0,5.5-1.6,9.4-5.5,13.1c-3,3.9-8.5,6.9-16.3,7.8
+			l17.9,24.1c3.9,5.5,7.8,9.4,10.8,10.8c3,2.3,6.9,3,11.7,3.9v3L525.9,680.9L525.9,680.9z M465.5,637.4c0.7,0,1.6,0,2.3,0
+			s0.7,0,1.6,0c7.8,0,14-1.6,18.6-5.5c3.9-3.9,6.2-7.8,6.2-13.1c0-5.5-1.6-9.4-5.5-13.1c-3-3-7.8-4.6-13.1-4.6
+			c-2.3,0-5.5,0.7-10.1,0.7V637.4z M572.6,594.7c10.8,0,20.9,3.9,28.7,12.4c7.8,8.5,12.4,18.6,12.4,31s-3.9,23.2-12.4,31.8
+			c-8.5,8.5-18.6,12.4-30.3,12.4c-11.7,0-21.8-3.9-29.5-12.4c-7.8-7.8-12.4-18.6-12.4-31.8c0-13.1,4.6-24.1,14-32.6
+			C551.6,597.9,561.7,594.7,572.6,594.7z M571.7,599.3c-7.8,0-14,3-18.6,8.5c-5.5,6.9-8.5,17-8.5,30.3c0,14,3,24.1,9.3,31.8
+			c4.6,5.5,10.8,8.5,18.6,8.5c7.8,0,14.7-3,20.2-9.4c5.5-6.2,7.8-15.6,7.8-29.5c0-13.9-3-24.8-8.5-31.8
+			C586.6,601.8,579.5,599.3,571.7,599.3z M175.3,652.1h-33.4l-6.2,13.1c-1.6,3-2.3,5.5-2.3,6.9c0,1.6,0.7,2.3,1.6,3
+			c1.6,0.7,3.9,1.6,7.8,2.3v2.3h-27.1v-2.3c3.9-0.7,5.5-1.6,6.9-2.3c2.3-2.3,4.6-6.2,6.9-12.4l30.3-69h2.3l30.3,69.9
+			c2.3,5.5,4.6,9.4,6.9,10.8c2.3,1.6,4.6,2.3,8.5,3v2.3h-34.1v-2.3c3.9,0,5.5-0.7,6.9-1.6c0.7-0.7,1.6-2.3,1.6-3
+			c0-2.3-0.7-4.6-2.3-8.5L175.3,652.1z M173.7,647.5L159,613.4l-14.7,34.1H173.7z M50.3,680.9l-33.4-71.4V666c0,5.5,0.7,8.5,1.6,9.4
+			c1.6,1.6,3.9,2.3,6.9,2.3h3v2.3H-1.7v-2.3h3c3.9,0,6.2-0.7,7.8-3c0.7-1.6,1.6-3.9,1.6-9.4v-55.1c0-3.9-0.7-6.2-0.7-7.8
+			c-0.7-0.7-1.6-2.3-3-3c-1.6-0.7-3.9-0.7-7.8-0.7v-2.3h24.1l31,66l31-66h24.1v2.3h-3c-3.9,0-6.2,0.7-7.8,3
+			c-0.7,1.6-1.6,3.9-1.6,9.4v55.1c0,5.5,0.7,8.5,1.6,9.4c1.6,1.6,3.9,2.3,7.8,2.3h3v2.3H72.9v-2.3h3c3.9,0,6.2-0.7,7.8-3
+			c0.7-1.6,1.6-3.9,1.6-9.4v-56.6L52,680.3h-1.6L50.3,680.9L50.3,680.9z"></path>
+	</g>
+</g>
+</svg>
+                <ul>
+                    <li>
+                        <a ui-sref="company" href="/company">
+                            <noindex>О компании</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="bank-details" href="/bank-details">
+                            <noindex>Реквизиты</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="trains" href="/trainers">
+                            <noindex>Эксперты</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="acts" href="/photo">Портфолио</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://samaraforum.com/pages/report">
+                            <noindex>Социальные проекты</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="stats" href="/stats">
+                            <noindex>Интересные статьи</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="feedback" href="/feedback">
+                            <noindex>Отзывы</noindex>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="col-sm-4 col-col-xs-12">
+
+                <h3>Услуги</h3>
+
+                <ul>
+                    <li>
+                        <a ui-sref="training-for-managers" href="/trainings">Тренинги для руководителей</a>
+                    </li>
+                    <li>
+                        <a ui-sref="training-for-personal" href="/competences">Обучение сотрудников</a>
+                    </li>
+                    <li>
+                        <a ui-sref="employee-training" href="/risings">Повышение квалификации</a>
+                    </li>
+                    <li>
+                        <a ui-sref="business-solutions" href="/solutions">Решения для бизнеса</a>
+                    </li>
+                    <li>
+                        <a ui-sref="business-event" href="/events">
+                            <noindex>Интеллектуальные игры</noindex>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="arhive" href="/arhive">
+                            <noindex>Архив мероприятий</noindex>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="col-sm-4 col-col-xs-12">
+
+                <h3>Контакты</h3>
+
+                <ul>
+                    <li class="rb">
+                        <i class="fa fa-phone"></i>
+
+                        +7 (846) 212-03-03
+
+                    </li>
+
+                    <li class="rb">
+                        <i class="fa fa-skype" style="color:#00AFF0"></i>
+
+                        <a href="skype:tcmaestro?call">skype - tcmaestro</a>
+
+                    </li>
+
+                    <li class="rb row2">
+                        <i class="fa fa-institution"></i>
+
+                        <p>
+                            443068, г. Самара <br>
+                            Ново-Садовая, 139
+                        </p>
+                    </li>
+                    <li class="rb">
+                        <i class="fa fa-envelope"></i>
+
+                        <a href="mailto:info@emaestro.ru">info@emaestro.ru</a>
+                    </li>
+
+
+                </ul>
+                <!-- ngInclude: '../static/app/shared/social/social-my.html' -->
+                <div class="icons--horizontal ng-scope" ng-include="'../static/app/shared/social/social-my.html'">
+                    <div class="icons--horizontal ng-scope">
+
+
+                        <div class="icon vk ">
+                            <a href="https://vk.com/emaestro" target="_blank">
+                                <i class="fa fa-vk"></i></a>
+                        </div>
+
+                        <div class="icon fb">
+                            <a href="https://www.facebook.com/maestrotc/" target="_blank">
+                                <i class="fa fa-facebook"></i> </a>
+                        </div>
+
+                        <div class="icon ins">
+                            <a href="instagram.com/emaestro_samara/" target="_blank">
+                                <i class="fa fa-instagram"></i> </a>
+                        </div>
+
+                        <div class="icon yo">
+                            <a href="https://www.youtube.com/channel/UCiuuPLOxg05bKETQTbMhWbA" target="_blank">
+                                <i class="fa fa-youtube"></i> </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <a style="display: inline-block; padding-top:20px; text-align:left;" ui-sref="license" href="/license">
+                <i>Лицензия Министерства образования и науки Самарской области № 5145 от 28 ноября 2013г.<i>
+                </i></i></a><i><i>
+
+        </i></i></div>
+        <i><i>
+        </i></i></div>
+    <i class="ng-scope"><i>
+
+    </i></i></div>
+<!-- ngInclude: '../static/app/shared/footer/map-row.html' -->
+<div ng-include="'../static/app/shared/footer/map-row.html'" class="ng-scope"></div>
+
+
+<div></div>
+</body>
+</html>

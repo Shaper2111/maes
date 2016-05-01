@@ -1,0 +1,36 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta %}
+<meta name="Description" content="Trainers"/>
+<title>Наши тренеры</title>
+{% endblock %}
+
+{% block content %}
+<div ng-controller="trains" class="container training-for-managers">
+    <div class="authors-h3">Эксперты</div>
+    <div class="authors">
+        {% for train in trains %}
+        <div class="col-md-6 author" ng-repeat="train in response.results">
+            {% if train.avatar %}
+            <!--<img class="col-sm-4 pl0 mr10" ng-if="train.avatar" src="../images/{{train.avatar}}">-->{% endif %}
+            <div class="text">
+                <a ui-sref="train({trainId: train.slug})" href="/trainers/{{ train.slug }}"><h1>{{train.name}}</h1></a>
+                {% if train.intro %}<p ng-if="train.intro" ng-bind-html="train.intro">{{ train.intro|safe }}</p>{% endif
+                %}
+                {% if train.job %}<p ng-if="train.job"><b>{{train.job}}</b></p>{% endif %}
+                {% if train.education %}<p ng-if="train.education"><b>Образование:</b> {{train.education}}</p>{% endif
+                %}
+                {% if train.line %}<p ng-if="train.line"><b>Специальность:</b> {{train.line}}</p>{% endif %}
+                {% if train.skill %}<p ng-if="train.skill"><b>Квалификация:</b> {{train.skill}}</p>{% endif %}
+                {% if train.clients %}<p ng-if="train.clients"><b>Клиенты:</b></p>
+
+                <div class="clients">
+                    {{train.clients}}
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

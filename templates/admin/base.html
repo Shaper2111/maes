@@ -1,0 +1,89 @@
+{% load static %}
+{% load compress %}
+<html>
+<head lang="en">
+    <base href="/"/>
+    <title>MAESTRO SITE</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700&subset=latin,cyrillic' rel='stylesheet'
+          type='text/css'>
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss"
+          href="{% static 'bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss' %}"/>
+    <link rel="stylesheet" type="text/x-scss"
+          href="{% static 'bower_components/font-awesome/scss/font-awesome.scss' %}"/>
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'assets/scss/admin.scss' %}"/>
+    {% endcompress %}
+</head>
+
+<body ng-app="routerApp" ng-controller="globalCtrl">
+
+<div ng-include="($state.current.name !== 'login')?'../../static/app/admin-components/navigation.html':''"
+     class="adminNavigation"></div>
+<div ng-class="{adminContainer: $state.current.name!=='login'}" ui-view></div>
+
+<script src="//cdn.ckeditor.com/4.5.5/full/ckeditor.js"></script>
+
+<script src="../../static/bower_components/angular/angular.min.js"></script>
+<script src="../../static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../../static/bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="../../static/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../../static/bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="../../static/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../../static/bower_components/ui-select/dist/select.js"></script>
+<script src="../../static/bower_components/api-check/dist/api-check.js"></script>
+<!-- must appear before formlyGenerator.js -->
+<script src="../../static/bower_components/angular-formly/dist/formly.js"></script>
+<script src="../../static/bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js"></script>
+<script src="../../static/bower_components/ng-table/dist/ng-table.js"></script>
+<script src="../../static/bower_components/ng-ckeditor/ng-ckeditor.js"></script>
+<script src="../../static/bower_components/textAngular/dist/textAngularSetup.js"></script>
+<script src="../../static/bower_components/textAngular/dist/textAngular.js"></script>
+<script src="../../static/bower_components/textAngular/dist/textAngular-rangy.min.js"></script>
+<script src="../../static/bower_components/textAngular/dist/textAngular-sanitize.min.js"></script>
+
+<script src="../../static/app/admin/admin.module.js"></script>
+<script src="../../static/app/admin/admin.routes.js"></script>
+
+<script src="../../static/app/factory/api.js"></script>
+<script src="../../static/app/factory/formlyGenerator.js"></script>
+
+<script src="../../static/app/directive/formlyDir.js"></script>
+
+<!--login-->
+<script src="../../static/app/components/sign-in/admin/login.js"></script>
+
+<!--admin-->
+
+<script src="../../static/app/components/training/events/admin.js"></script>
+<script src="../../static/app/components/training/events/acts/admin.js"></script>
+<script src="../../static/app/components/training/events/comments/admin.js"></script>
+
+<script src="../../static/app/components/training/anyTraining/admin.js"></script>
+<script src="../../static/app/components/training/anyTraining/acts/admin.js"></script>
+<script src="../../static/app/components/training/anyTraining/comments/admin.js"></script>
+
+<script src="../../static/app/components/training/risings/admin.js"></script>
+<script src="../../static/app/components/training/risings/acts/admin.js"></script>
+<script src="../../static/app/components/training/risings/comments/admin.js"></script>
+
+<script src="../../static/app/components/training/trainings/admin.js"></script>
+<script src="../../static/app/components/training/trainings/acts/admin.js"></script>
+<script src="../../static/app/components/training/trainings/comments/admin.js"></script>
+
+<script src="../../static/app/components/training/competences/admin.js"></script>
+<script src="../../static/app/components/training/competences/teachings/admin.js"></script>
+<script src="../../static/app/components/training/competences/teachings/acts/admin.js"></script>
+<script src="../../static/app/components/training/competences/teachings/comments/admin.js"></script>
+
+<script src="../../static/app/components/portfolio/admin.js"></script>
+
+<script src="../../static/app/components/clients/admin.js"></script>
+<script src="../../static/app/components/trains/admin.js"></script>
+
+<script src="../../static/app/components/posts/admin.js"></script>
+
+</body>
+</html>

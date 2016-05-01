@@ -1,0 +1,45 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta %}
+<meta name="Description" content="News"/>
+<title>Интересные статьи</title>
+{% endblock %}
+
+{% block content %}
+<div class="outMargin"></div>
+<div class="container" ng-controller="stats">
+
+    <div class="blog-h3 col-md-10 col-md-offset-1">Статьи</div>
+    {% for data in posts %}
+    <div ng-repeat="data in response.results" class="col-md-10 col-md-offset-1 blog">
+        <h1>
+            <a ui-sref="stat({statId: data.slug})" href="{{data.get_absolute_url}}">
+                {{data.name}}
+            </a>
+        </h1>
+        {% if data.photo %}<img ng-if="data.photo" src="/images/{{data.photo}}" width="100%" height="auto"
+                                alt="{{data.name}}"/>{% endif %}
+
+        <article ng-bind-html="data.short | unsafe">{{ data.short|safe }}</article>
+
+        <div ng-bind-html="data.body"></div>
+        <div class="dib wide">
+            <!--<div class="pull-left">-->
+            <!--<b>Поделиться  </b>-->
+            <!--</div>-->
+            <!--<div class="icons&#45;&#45;horizontal" ng-include="'../static/app/shared/social/social-in-row.html'"></div>-->
+            <a ui-sref="stat({statId: data.slug})" class="btn btn-default pull-right"
+               href="{{ data.get_absolute_url }}">
+                Читать далее <i class="fa fa-angle-double-right"></i>
+            </a>
+        </div>
+        <hr>
+    </div>
+    {% endfor %}
+
+    <div class="add col-md-10 col-md-offset-1" ng-click="load(response.results.length)"
+         ng-if="response.results.length !== response.count">
+        <i class="fa fa-plus"></i>
+    </div>
+
+</div>
+{% endblock %}

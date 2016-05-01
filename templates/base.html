@@ -1,0 +1,177 @@
+{% load static %}
+{% load compress %}
+<html>
+<head lang="en">
+
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <meta name='yandex-verification' content='788e5e7c0b6e0292'/>
+    <meta name="google-site-verification" content="kl3pQ044RitZSs9P-cGvYxybeK7qm5v-KDgPCf3BQLY"/>
+    <meta charset="UTF-8">
+    <meta name="fragment" content="!">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <base href="/"/>
+    <title>Тренинги, семинары, курсы в Самаре для руководителей и персонала, обучение переговорам, проведение
+        конференций и семинаров по продажам - тренинговая компания «Маэстро» {{ data }}</title>
+    <meta name='description'
+          content='Получите бизнес-образование в Самаре! Тренинговая компания «Маэстро» (Самара, Тольятти) организует конференции и семинары для руководителей и персонала. Проведение тренингов по продажам и курсы по переговорам с ведущими экспертами.'/>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,700italic,600italic,400italic,300italic|Lora:400,700,700italic,400italic&subset=latin,cyrillic'
+          rel='stylesheet' type='text/css'>
+    {% compress css %}
+    <link rel="stylesheet" type="text/x-scss"
+          href="{{ STATIC_URL }}bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss"/>
+    <link rel="stylesheet" type="text/x-scss"
+          href="{{ STATIC_URL }}bower_components/font-awesome/scss/font-awesome.scss"/>
+    <link rel="stylesheet" type="text/x-scss" href="{{ STATIC_URL }}assets/scss/build.scss"/>
+    {% endcompress %}
+</head>
+
+<body ng-app="routerApp">
+
+<div ng-include="'../static/app/shared/menu/navigation.html'"></div>
+<div ng-include="'../static/app/shared/sidebar/phone.html'"></div>
+<div ng-include="'../static/app/shared/social/social.html'"></div>
+
+<div ui-view autoscroll></div>
+
+<div ng-include="'../static/app/shared/footer/logo-row.html'"></div>
+<div ng-include="'../static/app/shared/footer/menu-row.html'"></div>
+<div ng-include="'../static/app/shared/footer/map-row.html'"></div>
+
+<script type="text/javascript" charset="utf-8"
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=zfBP1Y5ZvsG2G2QMbSSQ6xjDXIrdQV7_&width=100%&height=400"></script>
+
+<script src="../static/bower_components/angular/angular.min.js"></script>
+<script src="../static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="../static/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="../static/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="../static/bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="../static/bower_components/angular-social-links/angular-social-links.js"></script>
+<script src="../static/bower_components/angular-deckgrid/angular-deckgrid.js"></script>
+
+<!-- Include YT library and this directive -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="../static/bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
+
+
+<script src="../static/app/app.module.js"></script>
+<script src="../static/app/app.routes.js"></script>
+
+<script src="../static/app/factory/api.js"></script>
+<script src="../static/app/filters/filters.js"></script>
+
+<script src="../static/app/directive/directive.js"></script>
+
+<script src="../static/app/components/clients/view.js"></script>
+<script src="../static/app/components/trains/view.js"></script>
+<script src="../static/app/components/training/search-block.js"></script>
+<script src="../static/app/components/training/training-grid.js"></script>
+
+<script src="../static/app/shared/training/list-3column.js"></script>
+
+<script src="../static/app/components/portfolio/view.js"></script>
+<script src="../static/app/components/portfolio/album/view.js"></script>
+<script src="../static/app/components/portfolio/album/photo.js"></script>
+
+<script src="../static/app/components/posts/view.js"></script>
+<script src="../static/app/components/posts/post/view.js"></script>
+
+<script src="../static/app/components/stats/view.js"></script>
+<script src="../static/app/components/stats/stat/view.js"></script>
+
+<script src="../static/app/components/arhive/view.js"></script>
+<script src="../static/app/components/arhive/arhiveYearId/view.js"></script>
+
+<script src="../static/app/shared/sidebar/callback.js"></script>
+
+<script src="../static/app/shared/menu/view.js"></script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter11560696 = new Ya.Metrika({
+                    id: 11560696,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true
+                });
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/11560696" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+<!-- ЗАПРЕТ КЛИКОВ -->
+<script type="text/javascript">
+    document.ondragstart = noselect;
+    // запрет на перетаскивание
+    document.onselectstart = noselect;
+    // запрет на выделение элементов страницы
+    document.oncontextmenu = noselect;
+    // запрет на выведение контекстного меню
+    function noselect() {
+        return false;
+    }
+</script>
+
+
+<!-- ГУГОЛ СЧЕТЧИК -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-72578674-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+
+<!-- отслеживание заявок в метрике --->
+
+<script type="text/javascript">
+    window.onload = function () {
+        yaCounterCOUNTER_ID.reachGoal('PHONE_ZAYAVKA')
+    }
+</script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        yaCounterCOUNTER_ID.reachGoal('TXT_ZAYAVKA')
+    }
+</script>
+
+
+</body>
+</html>

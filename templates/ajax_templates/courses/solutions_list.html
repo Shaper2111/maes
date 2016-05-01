@@ -1,0 +1,159 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta%}
+<meta name="description" content="Решения для бизнеса"/>
+<meta name="keywords" content="Решения для бизнеса"/>
+<title>Решения для бизнеса</title>
+{% endblock %}
+{% block content %}
+<div ui-view="" autoscroll="" class="ng-scope">
+    <div class="container employee-training ng-scope" ng-controller="training-grid">
+        <div ng-controller="search-block" class="ng-scope">
+
+            <div class="search">
+                <i ng-click="searchActive()" class="search--icon fa fa-search fa-flip-horizontal"></i>
+
+                <div class="search--inputContainer"><input ng-model="modelSearch.text" type="text"
+                                                           ng-enter="searchActive()"
+                                                           class="search-string ng-pristine ng-untouched ng-valid"
+                                                           placeholder="Введите запрос..."></div>
+            </div>
+
+            <div class="mw1000 ma">
+
+                <div class="search-results mb20">
+                    <!-- ngRepeat: item in search.results -->
+                </div>
+
+            </div>
+
+        </div>
+        <h1 class="text-center ng-scope">РЕШЕНИЯ ДЛЯ БИЗНЕСА</h1>
+
+        <div class="mw1000 ma ov_au training-grid">
+            <div source="data.results" deckgrid=""
+                 cardtemplatestring="<img data-ng-click=&quot;mother.toCard(card.id)&quot; data-ng-if=&quot;card.id&quot; class=&quot;mb10&quot; alt=&quot;&quot; width=&quot;200px&quot; data-ng-src=&quot;/images/&quot;>
+            <img data-ng-click=&quot;mother.toCard(card.slug)&quot; data-ng-if=&quot;card.slug&quot; class=&quot;mb10&quot; alt=&quot;&quot; width=&quot;200px&quot; data-ng-src=&quot;/images/&quot;>
+
+            <h3 class=&quot;text-name&quot;></h1>
+
+            <h3 class=&quot;text-author&quot; ng-if=&quot;card.calendar.dates.lower&quot;>Дата: <i class=&quot;fa fa-calendar-o&quot;></i>
+                <b ng-if=&quot;card.calendar.dates.upper&quot;>с  по </b>
+                <b ng-if=&quot;card.calendar.dates.upper === null&quot;></b>
+            </h3>
+            <h3 class=&quot;text-author&quot; ng-if=&quot;card.dates.lower&quot;>Дата: <i class=&quot;fa fa-calendar-o&quot;></i>
+                <b ng-if=&quot;card.dates.upper&quot;>с  по </b>
+                <b ng-if=&quot;card.dates.upper === null&quot;></b>
+            </h3>
+
+            <h3 class=&quot;text-author&quot; ng-if=&quot;card.owner.name&quot;>Ведущий: </h3>
+
+            <button ng-if=&quot;card.id&quot; data-ng-click=&quot;mother.toCard(card.id)&quot; class=&quot;btn btn-primary btn-lg mt20 mb20&quot;>
+                Подробнее
+            </button>
+            <button ng-if=&quot;card.slug&quot; data-ng-click=&quot;mother.toCard(card.slug)&quot; class=&quot;btn btn-primary btn-lg mt20 mb20&quot;>
+                Подробнее
+            </button>" class="events deckgrid ng-isolate-scope">
+                <!-- ngRepeat: column in columns -->
+                <div data-ng-repeat="column in columns" class="column size-1-3">
+                    {% for course in courses %}
+                    {% if forloop.counter == 1 or forloop.counter == 4 or forloop.counter == 7 or forloop.counter == 10
+                    %}
+                    <!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate -->
+                    <div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope">
+                        <!-- ngIf: card.id --><img data-ng-click="mother.toCard(card.id)" data-ng-if="card.id"
+                                                   class="mb10 ng-scope" alt="" width="200px"
+                                                   data-ng-src="/images/{{ course.photo }}"
+                                                   src="/images/{{ course.photo }}"><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+
+                        <h3 class="text-name ng-binding ng-scope">{{ course.name }}</h3>
+                        <!-- ngIf: card.owner.name --><h3 class="text-author ng-binding ng-scope"
+                                                          ng-if="card.owner.name">Ведущий: {{ course.owner }}</h3>
+                        <!-- end ngIf: card.owner.name -->
+                        <!-- ngIf: card.id -->
+                        <button ng-if="card.id" data-ng-click="mother.toCard(card.id)"
+                                class="btn btn-primary btn-lg mt20 mb20 ng-scope">
+                            Подробнее
+                        </button><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+                    </div>
+                    <!-- end ngRepeat: card in column -->{% endif %}{% endfor %}
+                </div><!-- end ngRepeat: column in columns -->
+                <div data-ng-repeat="column in columns" class="column size-1-3">
+                    {% for course in courses %}
+                    {% if forloop.counter == 2 or forloop.counter == 5 or forloop.counter == 8 %}
+                    <!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate -->
+                    <div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope">
+                        <!-- ngIf: card.id --><img data-ng-click="mother.toCard(card.id)" data-ng-if="card.id"
+                                                   class="mb10 ng-scope" alt="" width="200px"
+                                                   data-ng-src="/images/{{ course.photo }}"
+                                                   src="/images/{{ course.photo }}"><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+                        <h3 class="text-name ng-binding ng-scope">{{ course.name }}</h3>
+                        <!-- ngIf: card.owner.name --><h3 class="text-author ng-binding ng-scope"
+                                                          ng-if="card.owner.name">Ведущий: {{ course.owner }}</h3>
+                        <!-- end ngIf: card.owner.name -->
+                        <!-- ngIf: card.id -->
+                        <button ng-if="card.id" data-ng-click="mother.toCard(card.id)"
+                                class="btn btn-primary btn-lg mt20 mb20 ng-scope">
+                            Подробнее
+                        </button><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+                    </div><!-- end ngRepeat: card in column -->{% endif %}{% endfor %}
+                </div><!-- end ngRepeat: column in columns -->
+                <div data-ng-repeat="column in columns" class="column size-1-3">
+                    {% for course in courses %}
+                    {% if forloop.counter == 3 or forloop.counter == 6 or forloop.counter == 9 %}
+                    <!-- ngRepeat: card in column --><!-- ngInclude: cardTemplate -->
+                    <div data-ng-repeat="card in column" data-ng-include="cardTemplate" class="ng-scope">
+                        <!-- ngIf: card.id --><img data-ng-click="mother.toCard(card.id)" data-ng-if="card.id"
+                                                   class="mb10 ng-scope" alt="" width="200px"
+                                                   data-ng-src="/images/{{ course.photo }}"
+                                                   src="/images/{{ course.photo }}"><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+                        <h3 class="text-name ng-binding ng-scope">{{ course.name }}</h3>
+                        <!-- ngIf: card.owner.name --><h3 class="text-author ng-binding ng-scope"
+                                                          ng-if="card.owner.name">Ведущий: {{ course.owner }}</h3>
+                        <!-- end ngIf: card.owner.name -->
+                        <!-- ngIf: card.id -->
+                        <button ng-if="card.id" data-ng-click="mother.toCard(card.id)"
+                                class="btn btn-primary btn-lg mt20 mb20 ng-scope">
+                            Подробнее
+                        </button><!-- end ngIf: card.id -->
+                        <!-- ngIf: card.slug -->
+                    </div><!-- end ngRepeat: card in column -->{% endif %}{% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="add col-md-12 ng-scope" ng-click="load(data.results.length)"
+             ng-if="data.results.length !== data.count">
+            <i class="fa fa-plus"></i>
+        </div>
+    </div>
+    <div ng-include="'../static/app/shared/training/training-list-3column-in-row.html'" class="ng-scope">
+        <div ng-controller="tfm" class="container events ng-scope">
+            <h2>Ближайшие мероприятия</h2>
+            {% for data in calendars %}
+            <div class="col-md-4" ng-if="$index<3" ng-repeat="data in trainings.results">
+                <img ng-if="data.photo" src="/images/{{data.content_object.photo}}" width="200px" height="auto" alt=""/>
+
+                <h3 class="text-name">{{data.content_object.name}}</h3>
+
+                <h3 class="text-author" ng-if="data.dates.lower">Дата: <i class="fa fa-calendar-o"></i>
+                    {% if data.dates.upper %}<b ng-if="data.dates.upper">с {{data.dates.lower|date:'d-m-Y'}} по
+                        {{data.dates.upper|date:'d-m-Y'}}</b>{% else %}
+                    <b ng-if="data.dates.upper === null">{{data.dates.lower|date:'d-m-Y'}}</b>
+                    {% endif %}
+                </h3>
+
+                <h3 class="text-author" ng-if="data.owner.name">Ведущий: {{data.content_object.owner.name}}</h3>
+                <button ui-sref="training-calendarId({trainingId: data.slug})" class="btn btn-primary btn-lg mt20 mb20"
+                        href="/training-calendar/{{ data.slug }}/">
+                    Подробнее
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

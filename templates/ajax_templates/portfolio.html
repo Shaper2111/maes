@@ -1,0 +1,30 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta%}
+<meta name="description" content="Портфолио"/>
+<meta name="keywords" content="Портфолио"/>
+<title>Портфолио</title>
+{% endblock %}
+{% block content %}
+<div class="container portfolio" ng-if="location.path() === '/' || location.path() === '/photo/'"
+     ng-controller="portfolio">
+
+    <h2 ng-if="itemsActs.results.length!==0">Портфолио</h2>
+
+    <div class="dib wide">
+        {% for data in videos %}
+        <div ng-if="$index < 4 && location.path() === '/' || location.path() === '/photo/'" class="col-sm-6 mb10"
+             ng-repeat="data in itemsActs.results">
+            <youtube-video player-width="'100%'" ng-if="data.youtube" video-url="{{ data.youtube }}"></youtube-video>
+            <article ng-bind-html="data.text"> {{ data.text|safe }}</article>
+        </div>
+        {% endfor %}
+        <div ng-if="($index < 4 && location.path() === '/' || location.path() === '/photo/' ) && itemsActs.results.length !== itemsActs.count"
+             class="add col-md-12" ng-click="loadActs(itemsActs.results.length)">
+            <i class="fa fa-plus"></i>
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock %}

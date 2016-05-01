@@ -1,0 +1,119 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta%}
+<meta name="description" content="{{ course.metadesc }}"/>
+<meta name="keywords" content="{{ course.metakey }}"/>
+<title>{{ course.name }}</title>
+{% endblock %}
+{% block content %}
+<div ng-controller="training-grid" class="ng-scope">
+    <div class="container business-event">
+        <div class="col-md-10 col-md-offset-1">
+            <!---   <div class='pull-left avatar' ng-model="data.rowner.avatar" ng-url="/images/{{data.rowner.avatar}}" ng-if="data.rowner.avatar" image-element></div>
+               <div class='pull-left avatar' ng-model="data.owner.avatar" ng-url="/images/{{data.owner.avatar}}" ng-if="data.owner.avatar" image-element></div>
+   --->
+            <div class="text">
+
+                <h1 class="ng-binding">{{ course.name }}</h1>
+
+                <p ui-sref="trainingId({trainingId: item.slug})" class="author ng-binding" href="/trainings/"></p>
+                {% if course.calendar.dates %}
+                <p ng-if="data.calendar.dates.upper || data.calendar.dates.lower" class="date">Дата проведения: <i
+                        class="fa fa-calendar-o"></i>
+                    {% if course.calendar.dates.upper %}<span ng-if="data.calendar.dates.upper">с {{course.calendar.dates.lower|date:'d-m'}} по {{course.calendar.dates.lower|date:'d-m-Y'}}</span>
+                    {% else %}<span ng-if="data.calendar.dates.upper === null">{{course.calendar.dates.lower|date:'d-m-Y'}}</span>{%
+                    endif %}
+                </p>
+                {% endif %}
+
+                <article ng-bind-html="data.text" class="ng-binding">{{ course.text|safe }}</article>
+
+                {% if course.price %}<!-- ngIf: data.price != 0 --><p ng-if="data.price != 0" class="ng-scope"><b>Стоимость:</b>
+                от <span class="price ng-binding">{{ course.price }} <i class="fa fa-rub"></i></span></p>
+                <!-- end ngIf: data.price != 0 -->{% endif %}
+                <div class="options">
+
+                    <button ng-click="panelChange();phoneChange(false);" class="btn btn-primary btn-lg order">
+                        <i class="fa fa-check"></i> Заказать
+                    </button>
+                    {% if course.program %}
+                    <button ng-if="data.program" class="btn btn-default btn-lg download">
+                        <i class="fa fa-download"></i> Скачать программу
+                    </button>
+                    {% endif %}
+                    {% if data.license %}
+                    <button ng-if="data.license" class="btn btn-default btn-lg download">
+                        <i class="fa fa-download"></i> Скачать лицензию
+                    </button>
+                    {% endif %}
+
+                </div>
+
+                <!--<div class="pull-left pr10">
+                    <b>Поделиться  </b>
+
+                </div>
+                <div class="icons--horizontal" ng-include="'../static/app/shared/social/social-in-row.html'"></div>-->
+            </div>
+        </div>
+    </div>
+
+    {% if course.comments %}
+    <div class="container" ng-if="comments && comments.length!==0">
+        <div class=" col-md-10 col-md-offset-1 testimonials-block">
+            <div class="testimonials-h3">Отзывы прошедших курсах</div>
+            <div class="testimonials" ng-repeat="comment in comments">
+                <img class="col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-if="comment.photo"
+                     src="../images/{{comment.photo}}">
+
+                <h1>{{comment.name}}</h1>
+                <article ng-bind-html="comment.text"></article>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if course.portfolio %}
+    <div class="container" ng-if="portfolio && portfolio.length!==0">
+        <div class="portfolio">
+            <h1>Портфолио</h1>
+
+            <div class="row">
+                <div class="col-sm-6" ng-repeat="act in portfolio">
+                    <img ng-if="act.photo && !act.youtube" src="/images/{{act.photo}}" width="100%" alt="{{act.name}}"/>
+                    <youtube-video player-width="'100%'" ng-if="act.youtube" video-url="act.youtube"></youtube-video>
+                    <p>{{act.name}}</p>
+
+                    <div ng-bind-html="act.text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+<div ng-include="'../static/app/shared/training/training-list-3column-in-row.html'" class="ng-scope">
+    <div ng-controller="tfm" class="container events ng-scope">
+        <h2>Ближайшие мероприятия</h2>
+        {% for data in calendars %}
+        <div class="col-md-4" ng-if="$index<3" ng-repeat="data in trainings.results">
+            <img ng-if="data.photo" src="/images/{{data.content_object.photo}}" width="200px" height="auto" alt=""/>
+
+            <h3 class="text-name">{{data.content_object.name}}</h3>
+
+            <h3 class="text-author" ng-if="data.dates.lower">Дата: <i class="fa fa-calendar-o"></i>
+                {% if data.dates.upper %}<b ng-if="data.dates.upper">с {{data.dates.lower|date:'d-m-Y'}} по
+                    {{data.dates.upper|date:'d-m-Y'}}</b>{% else %}
+                <b ng-if="data.dates.upper === null">{{data.dates.lower|date:'d-m-Y'}}</b>
+                {% endif %}
+            </h3>
+
+            <h3 class="text-author" ng-if="data.owner.name">Ведущий: {{data.content_object.owner.name}}</h3>
+            <button ui-sref="training-calendarId({trainingId: data.slug})" class="btn btn-primary btn-lg mt20 mb20"
+                    href="/training-calendar/{{ data.slug }}/">
+                Подробнее
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}

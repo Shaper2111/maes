@@ -1,0 +1,36 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta %}
+<meta name="description" content="{{ data.metadesc }}"/>
+<meta name="keywords" content="{{ data.metakey }}"/>
+<title>{{ data.name }}</title>
+{% endblock %}
+
+{% block content %}
+<div class="outMargin"></div>
+<div class="container">
+    <div class="blog-h3 col-md-10 col-md-offset-1">Блог</div>
+
+    <div class="col-md-10 col-md-offset-1 blog" ng-controller="post">
+        <h1>{{data.name}}</h1>
+
+        <h3><a ui-sref="posts" href="/news/">Вернуться</a></h3>
+        {% if data.photo %}<img ng-if="data.photo" src="/images/{{data.photo}}" width="100%" height="auto"
+                                alt="{{data.name}}"/>{% endif %}
+
+        <article ng-bind-html="data.body">{{ data.body|safe }}</article>
+
+        <div class="dib wide">
+            <div class="pull-left">
+                <b>Поделиться</b>
+            </div>
+            <div class="icons--horizontal" ng-include="'../static/app/shared/social/social-in-row.html'"></div>
+            <div class="pull-left">
+                <h3 class="inOneRow">
+                    <i class="fa fa-eye"></i>
+                    {{data.views}}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

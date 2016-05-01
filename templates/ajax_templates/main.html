@@ -1,0 +1,178 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta %}
+<meta name="description"
+      content="Получите бизнес-образование в Самаре! Тренинговая компания «Маэстро» (Самара, Тольятти) организует конференции и семинары для руководителей и персонала. Проведение тренингов по продажам и курсы по переговорам с ведущими экспертами.">
+<title>Тренинги, семинары, курсы в Самаре для руководителей и персонала, обучение переговорам, проведение конференций и
+    семинаров по продажам - тренинговая компания «Маэстро»</title>
+{% endblock %}
+{% block content %}
+<!-- uiView:  -->
+<div ui-view="" autoscroll="" class="ng-scope">
+    <div class="main text-center ng-scope">
+        <div class="main--text opacity">
+            <div class="container">
+                <div class="col-md-9">
+                    <h2>560</h2>
+
+                    <p>Экспертных решений для развития Вашего бизнеса</p>
+                </div>
+                <a ui-sref="more" class="btn btn-lg btn-primary main--button" href="/more/">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ngInclude: '../static/app/shared/training/training-list-3column-in-row.html' -->
+    <div ng-include="'../static/app/shared/training/training-list-3column-in-row.html'" class="ng-scope">
+        <div ng-controller="tfm" class="container events ng-scope">
+            <h2>Ближайшие мероприятия</h2>
+            {% for data in trainings %}
+            <div class="col-md-4" ng-if="$index<3" ng-repeat="data in trainings.results">
+                <img ng-if="data.photo" src="/images/{{data.content_object.photo}}" width="200px" height="auto" alt=""/>
+
+                <h3 class="text-name">{{data.content_object.name}}</h3>
+
+                <h3 class="text-author" ng-if="data.dates.lower">Дата: <i class="fa fa-calendar-o"></i>
+                    {% if data.dates.upper %}<b ng-if="data.dates.upper">с {{data.dates.lower|date:'d-m-Y'}} по
+                        {{data.dates.upper|date:'d-m-Y'}}</b>{% else %}
+                    <b ng-if="data.dates.upper === null">{{data.dates.lower|date:'d-m-Y'}}</b>
+                    {% endif %}
+                </h3>
+
+                <h3 class="text-author" ng-if="data.owner.name">Ведущий: {{data.content_object.owner.name}}</h3>
+                <button ui-sref="training-calendarId({trainingId: data.slug})" class="btn btn-primary btn-lg mt20 mb20"
+                        href="/training-calendar/{{ data.slug }}/">
+                    Подробнее
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- ngInclude: '../static/app/shared/training/training-list-4row-in-column.html' -->
+    <div ng-include="'../static/app/shared/training/training-list-4row-in-column.html'" class="ng-scope">
+        <div class="courses ng-scope">
+
+            <div class="container">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+
+                    <h2 class="text-center">Повышение квалификации</h2>
+
+                    <div class="row">
+                        <div class="col-sm-4" style="margin-bottom: 20px;">
+                            <img src="../static/assets/img/main/kvalif.jpg" width="200px" height="auto" alt="">
+
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h4 class="fz20">Подберите для себя авторский курс повышения квалификации по следующим
+                                направлениям: менеджмент, экономика и управление на предприятии, маркетинг и продажи,
+                                управление персоналом, логистика предприятия, финансы.</h4>
+                            <button ui-sref="employee-training" class="btn btn-primary btn-lg mt20" href="/risings/">
+                                Подобрать курс
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="container">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+
+                    <h2 class="text-center">Решения для бизнеса</h2>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../static/assets/img/main/reshenie.jpg" width="200px" height="auto" alt="">
+
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h4 class="fz20">Проведите для Ваших партнеров и сотрудников деловое мероприятие
+                                (конференции, форумы), интеллектуальную игру, бизнес – кэмп или новое интересное
+                                мероприятие.</h4>
+                            <button ui-sref="business-solutions" class="btn btn-primary btn-lg mt20" href="/solutions/">
+                                Узнать больше
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+
+                    <h2 class="text-center">Обучение сотрудников</h2>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../static/assets/img/main/obuchenie.jpg" width="200px" height="auto" alt="">
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h4 class="fz20">Подберите индивидуальную программу корпоративного обучения для Ваших
+                                сотрудников, исходя из специфики и нюансов бизнеса, в таких областях как: оценка
+                                персонала, развитие управленческих компетенций, управление процессами и проектами,
+                                коучинг и наставничество, продажи и маркетинг, юриспруденция, финансы и бухгалтерия.
+
+                            </h4>
+                            <button ui-sref="training-for-personal" class="btn btn-primary btn-lg mt20"
+                                    href="/competences/">
+                                Выбрать программу
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="col-sm-12 col-md-10 col-md-offset-1">
+                    <h2 class="text-center">Деловые мероприятия</h2>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../static/assets/img/main/delov.jpg" width="200px" height="auto" alt="">
+
+                        </div>
+                        <div class="col-sm-8 text-center">
+                            <h4 class="fz20">Проведите для Ваших партнеров деловое мероприятие (конференции, форумы) или
+                                для Ваших сотрудников интеллектуальную игру.</h4>
+                            <button ui-sref="business-event" class="btn btn-primary btn-lg mt20" href="/events/">
+                                Подобрать программу
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- ngInclude: '../static/app/components/portfolio/view.html' -->
+    <div ng-include="'../static/app/components/portfolio/view.html'" class="ng-scope">
+        <!--ng-if="location.path() === '/photo/'"-->
+
+
+        <div class="container portfolio" ng-if="location.path() === '/' || location.path() === '/photo/'"
+             ng-controller="portfolio">
+
+            <h2 ng-if="itemsActs.results.length!==0">Портфолио</h2>
+
+            <div class="dib wide">
+                {% for data in acts %}
+                <div ng-if="$index < 4 && location.path() === '/' || location.path() === '/photo/'"
+                     class="col-sm-6 mb10" ng-repeat="data in itemsActs.results">
+                    <youtube-video player-width="'100%'" ng-if="data.youtube"
+                                   video-url="{{ data.youtube }}"></youtube-video>
+                    <article ng-bind-html="data.text">{{ data.text|safe }}</article>
+                </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+
+
+    </div><!-- end ngIf: location.path() === '/' || location.path() === '/photo/' -->
+</div>
+{% endblock %}

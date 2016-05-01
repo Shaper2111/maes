@@ -1,0 +1,58 @@
+{% extends "ajax_templates/base.html" %}
+{% block meta %}
+<meta name="Description" content="Trainers"/>
+<title>{{response.name}}</title>
+{% endblock %}
+
+{% block content %}
+<div ng-controller="trains">
+    <div class="container business-solutions">
+        <img class="pl0 mr10" ng-if="response.avatar" src="../images/{{response.avatar}}">
+
+        <div class="text">
+            <h1>{{response.name}}</h1>
+
+            <p>{{response.job}}</p>
+            {% if response.education %}<p ng-if="response.education"><b>Образование:</b> {{response.education}}</p>{%
+            endif %}
+            {% if response.line %}<p ng-if="response.line"><b>Специальность:</b> {{response.line}}</p>{% endif %}
+            {% if response.skill %}<p ng-if="response.skill"><b>Квалификация:</b> {{response.skill}}</p>{% endif %}
+            {% if response.intro %}<p ng-if="response.intro" ng-bind-html="response.intro">{{ response.intro|safe }}</p>
+            {% endif %}
+            {% if response.clients %}<p ng-if="response.client"><b>Клиенты:</b></p>
+
+            <div class="clients">
+                {% for client in response.clients.all %}
+                <img title="{{client.name}}" ng-repeat="client in response.clients" src="/images/{{client.logo}}">
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<div ng-controller="tfm" class="container events ng-scope">
+    <h2>Ближайшие мероприятия</h2>
+    {% for data in trainings %}
+    <div class="col-md-4" ng-if="$index<3" ng-repeat="data in trainings.results">
+        <img ng-if="data.photo" src="/images/{{data.content_object.photo}}" width="200px" height="auto" alt=""/>
+
+        <h3 class="text-name">{{data.content_object.name}}</h3>
+
+        <h3 class="text-author" ng-if="data.dates.lower">Дата: <i class="fa fa-calendar-o"></i>
+            {% if data.dates.upper %}<b ng-if="data.dates.upper">с {{data.dates.lower|date:'d-m-Y'}} по
+                {{data.dates.upper|date:'d-m-Y'}}</b>{% else %}
+            <b ng-if="data.dates.upper === null">{{data.dates.lower|date:'d-m-Y'}}</b>
+            {% endif %}
+        </h3>
+
+        <h3 class="text-author" ng-if="data.owner.name">Ведущий: {{data.content_object.owner.name}}</h3>
+        <button ui-sref="training-calendarId({trainingId: data.slug})" class="btn btn-primary btn-lg mt20 mb20"
+                href="/training-calendar/{{ data.slug }}/">
+            Подробнее
+        </button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
